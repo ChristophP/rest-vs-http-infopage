@@ -3,11 +3,12 @@
 
 /* my resets */
 html, body {
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
   font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 svg {
@@ -21,4 +22,10 @@ svg {
 
 /* put custom utilities here */
 
+.-indent-2 {
+  text-indent: -0.5rem;
+}
 
+.-indent-4 {
+  text-indent: -1rem;
+}
