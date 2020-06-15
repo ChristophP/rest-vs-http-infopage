@@ -36,3 +36,13 @@ svg {
 .-indent-4 {
   text-indent: -1rem;
 }
+
+.quoted {
+  quotes: "“" "”" "‘" "’";
+}
+.quoted::before {
+  content: open-quote;
+}
+.quoted::after {
+  content: close-quote;
+}
