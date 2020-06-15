@@ -14,6 +14,13 @@ body {
 svg {
   fill: currentColor;
 }
+
+a {
+  @apply text-blue-500
+}
+a:focus, a:hover {
+  @apply underline;
+}
 /* my resets end */
 
 @tailwind components;
