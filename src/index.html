@@ -16,23 +16,25 @@
 </head>
 
 <body>
-  <header class="fixed inset-x-0 top-0 px-4 py-6 text-white bg-blue-400 shadow-md header-gradient">
-    <h1 class="text-5xl font-semibold tracking-wide">REST vs HTTP</h1>
-    <p class="text-xl">What is the difference between a REST API and a plain HTTP API?</p>
+  <header class="px-4 py-6 text-white bg-blue-400 shadow-md header-gradient">
+    <div class="container mx-auto">
+      <h1 class="text-4xl font-semibold tracking-wide">REST vs HTTP</h1>
+      <p class="text-xl">What is the difference between a REST API and a plain HTTP API?</p>
+    </div>
   </header>
-  <main class="mt-40">
-    <p class="px-4 py-2 ml-4 -indent-4"><em>REST</em> is a popular design principle, which is often used
-      for APIs. <em>REST</em> is comprised of a set of constraints, which - when followed -
-      make an API <em>RESTful</em>. However, all too often, APIs are falsely labeled as
-      <em>REST API</em>, simply because it has become such a trend to have one.
-    </p>
+  <main class="container mx-auto mt-4">
+    <!--<p class="px-4 py-2 ml-4 -indent-4"><em>REST</em> is a popular design principle, which is often used-->
+    <!--for APIs. <em>REST</em> is comprised of a set of constraints, which - when followed --->
+    <!--make an API <em>RESTful</em>. However, all too often, APIs are falsely labeled as-->
+    <!--<em>REST API</em>, simply because it has become such a trend to have one.-->
+    <!--</p>-->
     <p class="px-4 py-2 ml-4 -indent-4" data-description="alternative-intro">
       REST is a popular way of architecting and designing Web applications, which are commonly served
       over HTTP. However, there seems to be a trend of calling any HTTP based API
       a REST API, even though the API doesn't follow basic REST principles.
       What makes an API RESTful and what is a plain HTTP API?
     </p>
-    <div class="px-12 py-2 my-4">
+    <div class="px-12 py-2 my-6">
       <blockquote class="font-serif text-2xl text-center quoted">
         I am getting frustrated by the number of people calling any HTTP-based interface a REST API.
       </blockquote>
@@ -43,13 +45,12 @@
       <div class="flex-1 p-4">
         <p>
           <em>Representational state transfer (REST)</em> is a software architectural style that defines a set of
-          constraints to
-          be
-          used for creating Web services. Web services that conform to the REST architectural style, called RESTful Web
+          constraints to be used for creating Web services. Web services that conform to the REST architectural style,
+          called RESTful Web
           services, provide interoperability between computer systems on the Internet. RESTful Web services allow the
           requesting systems to access and manipulate textual representations of Web resources by using a uniform and
           predefined set of stateless operations.
-          https://en.wikipedia.org/wiki/Representational_state_transfer
+          <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">?</a>
         </p>
       </div>
       <div class="flex-1 p-4">
@@ -60,22 +61,48 @@
           documents include hyperlinks to other resources that the user can easily access, for example by a mouse click
           or
           by tapping the screen in a web browser.
-          https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+          <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">?</a>
         </p>
       </div>
     </div>
-    <div class="mt-4">
-      <h2>Checklist for REST APIs?</h2>
-      <p>Constaint 1</p>
-      <p>Constaint 2</p>
-      <p>Constaint 3</p>
-      <p>Constaint 4</p>
+    <div class="px-4 mt-4">
+      <h2 class="text-xl font-semibold">Checklist: Is my API restful?</h2>
+      <ul class="pl-6 list-disc">
+        <li>Constaint 1</li>
+        <li>Constaint 2</li>
+        <li>Constaint 3</li>
+        <li>Constaint 4</li>
+      </ul>
     </div>
-    <div class="mt-4">
-      <h2>Popular examples?</h2>
-      Others: GraphQL? Nope, ProtoBuf? Nope, JSON API: Yes
+    <div class="px-4 mt-4">
+      <h2 class="py-2 text-xl font-semibold">REST FAQs</h2>
+      <ul class="pl-6 list-disc">
+        <li>
+          <div class="font-bold">Does REST need to be served over HTTP?</div>
+          <p>Nope, other protocols work too.</p>
+        </li>
+        <li>
+          <div class="font-bold">Are all HTTP APIs automatically REST APIs?</div>
+          <p>No, only if they follow the constraints
+            for REST, as laid
+            out for
+            in Roy Fielding's dissertation.</p>
+        </li>
+        <li>
+          <div class="font-bold">What is hypertext/hypermedia?</div>
+        </li>
+        <li>
+          <div class="font-bold">What about other popular ways of building APIs, do they follow REST?</div>
+          <p>
+            - GraphQL? Nope
+            - ProtoBuf? Nope
+            - JSON API: Yes
+          </p>
+        </li>
+      </ul>
     </div>
-    <pre class="whitespace-pre-wrap">
+    <pre class="px-4 mt-4 whitespace-pre-wrap">
+      TODO other optional content
       - History: Roy Fielding's dissertation
       - Confusing examples: AWS API Gateway REST API
           "You can build RESTful APIs using both HTTP APIs and REST APIs in Amazon API Gateway."
@@ -85,14 +112,20 @@
          - constaint 1
          - constraint 2
          - constraint 3
-      - Others: GraphQL? Nope, ProtoBuf? Nope, JSON API: Yes
       - Links to sources:
-         -
     </pre>
   </main>
-  <footer class="py-2 text-center text-white bg-gray-400">
-    <a href="https://github.com/ChristophP/rest-vs-http-infopage">Code for this website</a> •
-    <a href="https://deedop.de/imprint">Impressum</a>
+  <footer class="py-6 text-sm text-center bg-gray-200">
+    <div>
+      © 2017 <a href="https://deedop.de">DeedoP</a> •
+      <a href="https://github.com/ChristophP/rest-vs-http-infopage">
+        <img class="inline" alt="GitHub:"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAQMAAACQp+OdAAAABlBMVEUAAAAAAAClZ7nPAAAAAXRSTlMAQObYZgAAAMdJREFUeAGtzrFtBCEUBNBZEWxICZRCaWzmtpDcCNcBzggQ4z/8k/dkXXg/WL0VDPNhkwb2BLJuRLJvFHJt0OZ5xS+dQlNYGIYsTA95jPTY4bhuhJXJWSrOFclWmkHthqgnkDvSP4wbeQll3ih+tF4whPQCdiH+gR9GMgzHXfpmsSXYN1PgNFQgGBK73htIXwsowjdrIDvig9chnD8bDWcnIISRhYpjQLhwzCewNtQn6C8/1Olb+uKn0AxBqAYIgMfmRgQ63swvNm3X54/v6+YAAAAASUVORK5CYII="
+          width="16" height="16"> ChristophP/rest-vs-http-infopage</a>
+    </div>
+    <div class="mt-2">
+      <a href="https://deedop.de/imprint">Imprint</a>
+    </div>
   </footer>
 </body>
 
