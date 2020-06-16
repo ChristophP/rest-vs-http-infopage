@@ -2,6 +2,7 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
+    "now-build": "parcel build src/index.html -d public",
     "lint": "eslint src && elm-format src --validate",
     "lint:fix": "eslint src --fix && elm-format src --yes"
   },
@@ -15,6 +16,7 @@
     "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-prettier": "^3.1.3",
     "node-elm-compiler": "^5.0.4",
+    "now": "^19.1.0",
     "parcel-bundler": "^1.12.4",
     "postcss": "^7.0.32",
     "prettier": "^2.0.5",
