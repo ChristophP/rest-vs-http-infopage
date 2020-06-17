@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="manifest" href="./site.webmanifest">
 
   <!-- TODO self host fonts here -->
   <link
@@ -34,16 +34,19 @@
     <!--<em>REST API</em>, simply because it has become such a trend to have one.-->
     <!--</p>-->
     <p class="px-4 py-2 ml-4 -indent-4" data-description="alternative-intro">
-      REST is a popular way of architecting and designing Web applications, which are commonly served
-      over HTTP. However, there seems to be a trend of calling any HTTP based API
-      a REST API, even though the API doesn't follow basic REST principles.
-      What makes an API RESTful and what is a plain HTTP API?
+      REST is a popular style of architecting and designing Web applications, which are commonly served
+      over HTTP. What makes an API RESTful and what is a plain HTTP API?
+      There seems to be a trend of calling any HTTP based API
+      a REST API, even though the API doesn't follow basic REST principles, as
+      REST's creator also attested in <a
+        href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">one of the blog posts on his
+        website</a>.
     </p>
     <div class="px-12 py-2 my-6">
       <blockquote class="font-serif text-2xl text-center quoted">
         I am getting frustrated by the number of people calling any HTTP-based interface a REST API.
       </blockquote>
-      <i class="block mr-12 text-right">Roy Fielding, creator of REST</i>
+      <i class="block mr-12 text-right">— Roy Fielding, creator of REST</i>
     </div>
     <div class="flex flex-col mx-4 mt-4 bg-gray-200 shadow-md lg:flex-row lg:space-x-4 rounded-md">
       <h2 class="px-4 py-2 text-xl font-semibold">Definitions</h2>
@@ -88,10 +91,9 @@
         </li>
         <li>
           <div class="font-bold">Are all HTTP APIs automatically REST APIs?</div>
-          <p>No, only if they follow the constraints
-            for REST, as laid
-            out for
-            in Roy Fielding's dissertation.</p>
+          <p>No, only if they follow the constraints for REST, as laid out in
+            <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">Roy Fielding's
+              dissertation</a>.</p>
         </li>
         <li>
           <div class="font-bold">What is hypertext/hypermedia?</div>
@@ -108,16 +110,11 @@
     </div>
     <pre class="px-4 mt-4 whitespace-pre-wrap">
       TODO other optional content
-      - History: Roy Fielding's dissertation
       - Confusing examples: AWS API Gateway REST API
           "You can build RESTful APIs using both HTTP APIs and REST APIs in Amazon API Gateway."
           https://aws.amazon.com/api-gateway/faqs/
-      - Common confusion
-      - Checklist:
-         - constaint 1
-         - constraint 2
-         - constraint 3
       - Links to sources:
+         - Roy Fielding's dissertation
     </pre>
   </main>
   <footer class="py-6 text-sm text-center bg-gray-200">
