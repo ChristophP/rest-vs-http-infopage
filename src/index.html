@@ -37,10 +37,11 @@
       REST is a popular style of architecting and designing Web applications, which are commonly served
       over HTTP. What makes an API RESTful and what is a plain HTTP API?
       There seems to be a trend of calling any HTTP based API
-      a REST API, even though the API doesn't follow basic REST principles, as
+      a REST API, even though the API doesn't fulfill all the constraints that
+      REST requires. As
       REST's creator also attested in <a
         href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">one of the blog posts on his
-        website</a>.
+        website</a>:
     </p>
     <div class="px-12 py-2 my-6">
       <blockquote class="font-serif text-2xl text-center quoted">
@@ -73,11 +74,53 @@
         </p>
       </div>
     </div>
+
+    <div class="px-4 mt-4">
+      <h2 class="text-xl font-semibold">The Hypermedia constraint</h2>
+      <p><em>REST</em> Web services must follow a set of constaints. Most API
+        that are declared REST APIs by their makers, follow only parts of the
+        constraints. The one that is broken the most is the constraint that
+        client-server interaction must be hypertext-driven.(HATEOAS)
+        - client must only now intial entrypoint
+        - resources link to each other
+        - clients know how to follow links based on media type
+        - Browsers an websites are a RESTful system
+        - state in response, or state to server in URI
+      </p>
+    </div>
+
+
+    <div class="px-4 mt-4">
+      <h2 class="text-xl font-semibold">What REST IS NOT about</h2>
+      <ul class="pl-6 list-disc">
+        <li>Pretty URIs. (if client is doing string concatenation to build URIs
+          it is not RESTful)</li>
+        <li>URI Pattern + GET, POST, PUT, DELETE</li>
+        <li>Constaint 3</li>
+        <li>Constaint 4</li>
+      </ul>
+    </div>
+
+    <div class="px-4 mt-4">
+      <h2 class="text-xl font-semibold">What REST IS about</h2>
+      <ul class="pl-6 list-disc">
+        <li>discoverability of resources</li>
+        <li>loose coupling between client and server</li>
+        <li>long living systems</li>
+        <li>making use of existing standards: like HTML, HTTP, URI</li>
+      </ul>
+    </div>
+
     <div class="px-4 mt-4">
       <h2 class="text-xl font-semibold">Checklist: Is my API restful?</h2>
       <ul class="pl-6 list-disc">
-        <li>Constaint 1</li>
-        <li>Constaint 2</li>
+        <li>Client concatenating URIs -> Not RESTful</li>
+        <li>Server responses don't contain links to other resources -> Violates hypertext/hypermedia constraint</li>
+        <li>Client says, give me the next page: -> Violates stateless constraint. To fulfill that the server would have
+          to
+          keep track of what the "next page" actually is. The correct RESTful way of doing that would be if the server
+          returns the current page along with a link to the next one, which can then be used by the client to retrieve
+          the next page.</li>
         <li>Constaint 3</li>
         <li>Constaint 4</li>
       </ul>
@@ -118,6 +161,25 @@
           https://aws.amazon.com/api-gateway/faqs/
       - Links to sources:
          - Roy Fielding's dissertation
+         - GOTO 2014: REST: I don't Think it Means What You Think it Does https://www.youtube.com/watch?v=pspy1H6A3FM
+      - Contrast to RPC: REST aims to achieve low coupling
+      - this great Stackoverflow answer:
+              https://stackoverflow.com/a/2191826
+              - self-descriptive messages
+              - HATEOAS constraint about turning responses into a web of links
+      - https://aboullaite.me/http-rest-apis/
+      - idea a RESTful client client which understands a certain hypermedia format
+        can talk to any server that uses this format
+      - it[REST] is a network of Web resources (a virtual state-machine) where the user progresses through the application by selecting resource identifiers such as http://www.example.com/articles/21 and resource operations such as GET or POST (application state transitions), resulting in the next resource's representation (the next application state) being transferred to the end user for their use. wikipedia
+      - REST was initially described in the context of HTTP, but is not limited to that protocol. RESTful architectures can be based on other Application Layer protocols if they already provide a rich and uniform vocabulary for applications based on the transfer of meaningful representational state. RESTful applications maximise the use of the pre-existing, well-defined interface and other built-in capabilities provided by the chosen network protocol, and minimise the addition of new application-specific features on top of it.
+      - What is Rest -
+        1- Client-server
+        2- Stateless
+        3- Cacheable
+        4- Layered system
+        5- Code on demand
+        6- Uniform interface
+      - From <a href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">here's a set of ways to check if you're building a HTTP API or a REST API:</a>
     </pre>
   </main>
   <footer class="py-6 text-sm text-center bg-gray-200">
