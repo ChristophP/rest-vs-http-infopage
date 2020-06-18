@@ -54,14 +54,19 @@ a:focus, a:hover {
   content: close-quote;
 }
 
+.with-checkmark {
+  @apply relative pl-6;
+}
 .with-checkmark::before {
   content: "✔";
-  @apply inline-block mr-2 text-green-500 align-middle transform scale-x-150;
-  transform: scale(1.5);
+  @apply absolute inline-block text-green-500 align-middle transform scale-150 -translate-x-5;
 }
 
+.with-ballot {
+  @apply relative pl-6;
+}
 .with-ballot::before {
   content: "✗";
-  @apply inline-block mr-2 text-red-500 align-middle transform scale-150;
+  @apply absolute inline-block mr-2 text-red-500 align-middle transform scale-150 -translate-x-5;
 }
 
