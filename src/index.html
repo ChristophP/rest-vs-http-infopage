@@ -104,8 +104,8 @@
       <ul class="pl-2 mt-2">
         <li class="with-checkmark">discoverability of resources</li>
         <li class="with-checkmark">loose coupling between client and server</li>
-        <li class="with-checkmark">long living systems</li>
         <li class="with-checkmark">making use of existing standards: like HTML, HTTP, URI</li>
+        <li class="with-checkmark">long living systems that can evolve independently over time</li>
       </ul>
     </div>
 
@@ -140,14 +140,25 @@
               dissertation</a>.</p>
         </li>
         <li>
-          <div class="font-bold">What is hypertext/hypermedia?</div>
+          <div class="font-bold">What is hypertext/hypermedia and HATEOAS?</div>
+          <p>It is simply a data format that has a notion of linking to other
+            content. HTML is a good example because it has <em>anchor</em> tags
+            that connect to other documents. Clients(Browsers) know how to
+            transition from one page(resource) to the other simply by understanding
+            the <a href="https://en.wikipedia.org/wiki/Media_type">Media type</a> <em>text/html</em>.
+          </p>
         </li>
         <li>
           <div class="font-bold">What about other popular ways of building APIs, do they follow REST?</div>
           <p>
-            - GraphQL? Nope
-            - ProtoBuf? Nope
-            - JSON API: Yes
+            - GraphQL? Is a query language and not an architectural style.<br>
+            - ProtoBuf? Nope<br>
+            - JSON API: Is a specification for APIs using JSON. Although it
+            does not explicitly label itself as following REST, it implements
+            many constraints correctly and promotes a style that it is plays well
+            with REST constraints, including: using it's own media type application/vnd.api+json,
+            using a JSON format that is well-specified (available to clients),
+            works with responses that link to other resources (discoverable)
           </p>
         </li>
       </ul>
