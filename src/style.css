@@ -53,3 +53,15 @@ a:focus, a:hover {
 .quoted::after {
   content: close-quote;
 }
+
+.with-checkmark::before {
+  content: "✔";
+  @apply inline-block mr-2 text-green-500 align-middle transform scale-x-150;
+  transform: scale(1.5);
+}
+
+.with-ballot::before {
+  content: "✗";
+  @apply inline-block mr-2 text-red-500 align-middle transform scale-150;
+}
+

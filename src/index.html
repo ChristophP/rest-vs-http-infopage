@@ -76,7 +76,7 @@
     </div>
 
     <div class="px-4 mt-4">
-      <h2 class="text-xl font-semibold">The Hypermedia constraint</h2>
+      <h2 class="px-4 py-2 text-xl font-semibold">Definitions</h2>
       <p><em>REST</em> Web services must follow a set of constaints. Most API
         that are declared REST APIs by their makers, follow only parts of the
         constraints. The one that is broken the most is the constraint that
@@ -92,27 +92,27 @@
 
     <div class="px-4 mt-4">
       <h2 class="text-xl font-semibold">What REST IS NOT about</h2>
-      <ul class="pl-6 list-disc">
-        <li>Pretty URIs. (if client is doing string concatenation to build URIs
-          it is not RESTful)</li>
-        <li>URI Pattern + GET, POST, PUT, DELETE</li>
-        <li>Constaint 3</li>
-        <li>Constaint 4</li>
+      <ul class="pl-2 mt-2">
+        <li class="with-ballot">Pretty URIs. (if client is doing string concatenation to build URIs it is not RESTful)
+        </li>
+        <li class="with-ballot">URI Pattern + GET, POST, PUT, DELETE</li>
       </ul>
     </div>
 
     <div class="px-4 mt-4">
       <h2 class="text-xl font-semibold">What REST IS about</h2>
-      <ul class="pl-6 list-disc">
-        <li>discoverability of resources</li>
-        <li>loose coupling between client and server</li>
-        <li>long living systems</li>
-        <li>making use of existing standards: like HTML, HTTP, URI</li>
+      <ul class="pl-2 mt-2">
+        <li class="with-checkmark">discoverability of resources</li>
+        <li class="with-checkmark">loose coupling between client and server</li>
+        <li class="with-checkmark">long living systems</li>
+        <li class="with-checkmark">making use of existing standards: like HTML, HTTP, URI</li>
       </ul>
     </div>
 
     <div class="px-4 mt-4">
-      <h2 class="text-xl font-semibold">Checklist: Is my API restful?</h2>
+      <h2 class="text-xl font-semibold">Checklist: Is my API RESTful?</h2>
+      <p>If you recognize these things in your application, there's a high chance,
+        that REST constraints are violated.</p>
       <ul class="pl-6 list-disc">
         <li>Client concatenating URIs -> Not RESTful</li>
         <li>Server responses don't contain links to other resources -> Violates hypertext/hypermedia constraint</li>
@@ -121,8 +121,6 @@
           keep track of what the "next page" actually is. The correct RESTful way of doing that would be if the server
           returns the current page along with a link to the next one, which can then be used by the client to retrieve
           the next page.</li>
-        <li>Constaint 3</li>
-        <li>Constaint 4</li>
       </ul>
     </div>
     <div class="px-4 mt-4">
@@ -181,8 +179,21 @@
         6- Uniform interface
       - From <a href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">here's a set of ways to check if you're building a HTTP API or a REST API:</a>
     </pre>
+    <div>
+      <h2 class="py-2 text-xl font-semibold">Conclusion</h2>
+      <p>Hopefully, this page has clarified what REST is and what it isn't.
+        While reading, you may have detected a so-called REST API at work or another place,
+        that actually should not be called one. If you did please:
+      </p>
+      <ol class="pl-6 mt-2 list-decimal">
+        <li>Stop calling it a REST API.😉. This would make Roy Fielding happy as well.</li>
+        <li>Kindly, pass on this knowledge or the link to this website to
+          other people, who you feel might benefit from learning what
+          REST is truly about. 🙏</li>
+      </ol>
+    </div>
   </main>
-  <footer class="py-6 text-sm text-center bg-gray-200">
+  <footer class="py-6 mt-4 text-sm text-center bg-gray-200">
     <div>
       © 2020 - present <a href="https://deedop.de">DeedoP</a>
       <br>
