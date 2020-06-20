@@ -16,7 +16,7 @@ svg {
 }
 
 a {
-  @apply text-blue-500
+  @apply text-blue-700
 }
 a:focus, a:hover {
   @apply underline;
