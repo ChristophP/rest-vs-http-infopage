@@ -57,6 +57,9 @@
       </blockquote>
       <i class="block mr-12 text-right">— Roy Fielding, creator of REST</i>
     </div>
+    <p class="px-4 py-2 ml-4 -indent-4">
+      Let's take a quick look to review, what the <em>REST</em> and <em>HTTP</em> are:
+    </p>
     <div class="flex flex-col mx-4 mt-4 bg-gray-200 shadow-md lg:flex-row lg:space-x-4 rounded-md">
       <h2 class="px-4 py-2 text-xl font-semibold">Definitions</h2>
       <div class="flex-1 p-4">
@@ -84,12 +87,59 @@
     </div>
 
     <div class="px-4 mt-4">
-      <h2 class="px-4 py-2 text-xl font-semibold">Definitions</h2>
-      <p><em>REST</em> Web services must follow a set of constaints. Most API
+      <h2 class="text-xl font-semibold">The REST constraints</h2>
+      <p class="py-2 ml-4 -indent-4">
+        <em>REST</em> Web services must follow a set of 6 constaints.
+        The most interesting ones are:
+      </p>
+      <ol class="pl-6 mt-2 list-disc">
+        <li>Stateless communication</li>
+        <li>Uniform interface</li>
+      </ol>
+      <p class="py-2 ml-4 -indent-4">
+        <em>Stateless communication</em> means that communication between client and
+        server can not rely on previous requests. For example: Clients can not
+        ask servers to send them "the next page", because doing so would require
+        that the server maintained some state about, which page the client has seen
+        last.
+
+        Instead, the <em>uniform interface</em> constraints impose a number of subconstraints
+        namely, identification of resources; manipulation of resources through
+        representations; self-descriptive messages; and hypermedia as the engine of application state(sometimes
+        abbreviated as HATEOAS).
+        This means that Hypertext(or more generally, hypermedia) needs
+        to be the driving mechanism by which clients navigate through the application.
+        The term is often called HATEOAS (hypermedia as the engine of application state).
+      </p>
+
+      <aside class="float-right p-2 ml-4 bg-gray-200 shadow-md">
+        <h3 class="font-semibold">Original REST Constraints</h3>
+        <ol class="pl-6 mt-2 list-decimal">
+          <li>Client-server</li>
+          <li>Stateless</li>
+          <li>Cacheable</li>
+          <li>Uniform interface</li>
+          <li>Layered system</li>
+          <li>Code on demand</li>
+        </ol>
+      </aside>
+
+
+      <p class="py-2 ml-4 -indent-4">
+        One of the subconstraints of the <em>Uniform Interface constraint</em> is that Hypertext needs
+        to be the driving mechanism by which clients navigate through the application. The term is
+        often called HATEOAS (hypermedia as the engine of application state).
+
+        In order to obtain a uniform interface, multiple architectural constraints are needed to guide the behavior of
+        components. REST is defined by four interface constraints: identification of resources; manipulation of
+      </p>
+
+      <p class="py-2 ml-4 -indent-4">
+        Most API
         that are declared REST APIs by their makers, follow only parts of the
         constraints. The one that is broken the most is the constraint that
         client-server interaction must be hypertext-driven.(HATEOAS)
-        - client must only now intial entrypoint
+        - client must only know initial entrypoint
         - resources link to each other
         - clients know how to follow links based on media type
         - Browsers an websites are a RESTful system
@@ -189,13 +239,6 @@
         can talk to any server that uses this format
       - it[REST] is a network of Web resources (a virtual state-machine) where the user progresses through the application by selecting resource identifiers such as http://www.example.com/articles/21 and resource operations such as GET or POST (application state transitions), resulting in the next resource's representation (the next application state) being transferred to the end user for their use. wikipedia
       - REST was initially described in the context of HTTP, but is not limited to that protocol. RESTful architectures can be based on other Application Layer protocols if they already provide a rich and uniform vocabulary for applications based on the transfer of meaningful representational state. RESTful applications maximise the use of the pre-existing, well-defined interface and other built-in capabilities provided by the chosen network protocol, and minimise the addition of new application-specific features on top of it.
-      - What is Rest -
-        1- Client-server
-        2- Stateless
-        3- Cacheable
-        4- Layered system
-        5- Code on demand
-        6- Uniform interface
       - From <a href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">here's a set of ways to check if you're building a HTTP API or a REST API:</a>
     </pre>
     <div class="px-4 mt-4">
