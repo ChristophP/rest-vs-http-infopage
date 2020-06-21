@@ -101,7 +101,9 @@
         ask servers to send them "the next page", because doing so would require
         that the server maintained some state about, which page the particular client has seen
         last.
+      </p>
 
+      <p class="py-2 ml-4 -indent-4">
         Instead, the <em>uniform interface</em> constraints impose a number of subconstraints
         namely, identification of resources; manipulation of resources through
         representations; self-descriptive messages; and hypermedia as the engine of application state(sometimes
@@ -111,13 +113,17 @@
         Hypermedia is a data format that can be interlinked. HTML with its
         anchor tags is a good example, but any format with this capability will
         work.
+      </p>
 
+      <p class="py-2 ml-4 -indent-4">
         So, by using hypermedia servers can directly send clients new
         URIs to navigate to. So instead of storing, which page a client has seen
         last, a server following a REST design will simply include a link to
         page 4 if it received a request for page 3. The client can then use it
         request the next page without the server having to maintain any client state.
+      </p>
 
+      <p class="py-2 ml-4 -indent-4">
         REST aims to reduce coupling between client and server, so another big benefit
         of including hyperlinks to other resources in the response, is that the client does NOT need
         to know a catalog of available resources up front. It is enough for
@@ -139,16 +145,16 @@
       </aside>
 
       <p class="py-2 ml-4 -indent-4">
-        However, most API that are declared REST APIs by their makers, do not
+        However, most APIs that are declared REST APIs by their makers, do not
         follow the constraint that
         client-server interaction must be hypertext-driven.(HATEOAS)
-
-        - client must only know initial entrypoint
-        - resources link to each other
-        - clients know how to follow links based on media type
-        - Browsers an websites are a RESTful system
-        - state in response, or state to server in URI
+        Often APIs simply return some JSON and does not contain any links to other
+        resources. This tighly couples client and server because without links
+        clients need knowledge of every endpoint up front and breaks RESTful
+        design.
       </p>
+
+      - Browsers an websites are a RESTful system
     </div>
 
 
