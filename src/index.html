@@ -123,15 +123,6 @@
         request the next page without the server having to maintain any client state.
       </p>
 
-      <p class="py-2 ml-4 -indent-4">
-        REST aims to reduce coupling between client and server, so another big benefit
-        of including hyperlinks to other resources in the response, is that the client does NOT need
-        to know a catalog of available resources up front. It is enough for
-        clients to navigate to the inital service URI and then follow links to
-        other resources. This enables clients and servers to evolve independently
-        because resources can be discovered and do not need to be know.
-      </p>
-
       <aside class="float-right p-2 ml-4 bg-gray-200 shadow-md">
         <h3 class="font-semibold">Original REST Constraints</h3>
         <ol class="pl-6 mt-2 list-decimal">
@@ -143,6 +134,15 @@
           <li>Code on demand</li>
         </ol>
       </aside>
+      <p class="py-2 ml-4 -indent-4">
+        REST aims to reduce coupling between client and server, so another big benefit
+        of including hyperlinks to other resources in the response, is that the client does NOT need
+        to know a catalog of available resources up front. It is enough for
+        clients to navigate to the inital service URI and then follow links to
+        other resources. This enables clients and servers to evolve independently
+        because resources can be discovered and do not need to be know.
+      </p>
+
 
       <p class="py-2 ml-4 -indent-4">
         However, most APIs that are declared REST APIs by their makers, do not
