@@ -79,8 +79,7 @@
           hypermedia
           information systems.[1] HTTP is the foundation of data communication for the World Wide Web, where hypertext
           documents include hyperlinks to other resources that the user can easily access, for example by a mouse click
-          or
-          by tapping the screen in a web browser.
+          or by tapping the screen in a web browser.
           <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">?</a>
         </p>
       </div>
@@ -98,9 +97,9 @@
       </ol>
       <p class="py-2 ml-4 -indent-4">
         <em>Stateless communication</em> means that communication between client and
-        server can not rely on previous requests. For example: Clients can not
+        server cannot rely on previous requests. For example: Clients can not
         ask servers to send them "the next page", because doing so would require
-        that the server maintained some state about, which page the client has seen
+        that the server maintained some state about, which page the particular client has seen
         last.
 
         Instead, the <em>uniform interface</em> constraints impose a number of subconstraints
@@ -109,7 +108,22 @@
         abbreviated as HATEOAS).
         This means that Hypertext(or more generally, hypermedia) needs
         to be the driving mechanism by which clients navigate through the application.
-        The term is often called HATEOAS (hypermedia as the engine of application state).
+        Hypermedia is a data format that can be interlinked. HTML with its
+        anchor tags is a good example, but any format with this capability will
+        work.
+
+        So, by using hypermedia servers can directly send clients new
+        URIs to navigate to. So instead of storing, which page a client has seen
+        last, a server following a REST design will simply include a link to
+        page 4 if it received a request for page 3. The client can then use it
+        request the next page without the server having to maintain any client state.
+
+        REST aims to reduce coupling between client and server, so another big benefit
+        of including hyperlinks to other resources in the response, is that the client does NOT need
+        to know a catalog of available resources up front. It is enough for
+        clients to navigate to the inital service URI and then follow links to
+        other resources. This enables clients and servers to evolve independently
+        because resources can be discovered and do not need to be know.
       </p>
 
       <aside class="float-right p-2 ml-4 bg-gray-200 shadow-md">
@@ -124,21 +138,11 @@
         </ol>
       </aside>
 
-
       <p class="py-2 ml-4 -indent-4">
-        One of the subconstraints of the <em>Uniform Interface constraint</em> is that Hypertext needs
-        to be the driving mechanism by which clients navigate through the application. The term is
-        often called HATEOAS (hypermedia as the engine of application state).
-
-        In order to obtain a uniform interface, multiple architectural constraints are needed to guide the behavior of
-        components. REST is defined by four interface constraints: identification of resources; manipulation of
-      </p>
-
-      <p class="py-2 ml-4 -indent-4">
-        Most API
-        that are declared REST APIs by their makers, follow only parts of the
-        constraints. The one that is broken the most is the constraint that
+        However, most API that are declared REST APIs by their makers, do not
+        follow the constraint that
         client-server interaction must be hypertext-driven.(HATEOAS)
+
         - client must only know initial entrypoint
         - resources link to each other
         - clients know how to follow links based on media type
