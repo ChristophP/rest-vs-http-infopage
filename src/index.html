@@ -18,7 +18,6 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
   <link rel="manifest" href="./site.webmanifest">
 
-
   <!-- TODO self host fonts here -->
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
@@ -29,63 +28,57 @@
 </head>
 
 <body>
-  <header class="px-4 py-6 text-white bg-blue-400 shadow-md header-gradient">
+  <header class="px-4 py-6 text-white bg-blue-400 shadow-md lg:px-32 header-gradient">
     <div class="container mx-auto">
       <h1 class="text-4xl font-semibold tracking-wide">REST vs HTTP</h1>
       <p class="text-xl">What is the difference between a REST API and a plain HTTP API?</p>
     </div>
   </header>
-  <main class="container mx-auto mt-4">
-    <!--<p class="px-4 py-2 ml-4 -indent-4"><em>REST</em> is a popular design principle, which is often used-->
-    <!--for APIs. <em>REST</em> is comprised of a set of constraints, which - when followed --->
-    <!--make an API <em>RESTful</em>. However, all too often, APIs are falsely labeled as-->
-    <!--<em>REST API</em>, simply because it has become such a trend to have one.-->
-    <!--</p>-->
-    <p class="px-4 py-2 ml-4 -indent-4" data-description="alternative-intro">
+  <main class="container px-4 mt-4 lg:px-32">
+    <p class="py-2 ml-4 -indent-4">
       REST is a popular style of architecting and designing Web applications, which are commonly served
       over HTTP. What makes an API RESTful and what is a plain HTTP API?
       There seems to be a trend of calling any HTTP based API
       a REST API, even though the API doesn't fulfill all the constraints that
-      REST requires. As
-      REST's creator also attested in <a
-        href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">one of the blog posts on his
+      REST requires. REST's creator Roy Fielding, also voiced his opinion about this in <a
+        href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">a blog post on his
         website</a>:
     </p>
-    <div class="px-12 py-2 my-6">
-      <blockquote class="font-serif text-2xl text-center quoted">
+    <div class="px-8 py-2 my-6">
+      <blockquote class="font-serif text-2xl italic text-center quoted">
         I am getting frustrated by the number of people calling any HTTP-based interface a REST API.
       </blockquote>
       <i class="block mr-12 text-right">— Roy Fielding, creator of REST</i>
     </div>
-    <p class="px-4 py-2 ml-4 -indent-4">
+    <p class="py-2 ml-4 -indent-4">
       Let's take a quick look to review, what the <em>REST</em> and <em>HTTP</em> are:
     </p>
-    <div class="flex flex-col mx-4 mt-4 bg-gray-200 shadow-md lg:flex-row lg:space-x-4 rounded-md">
+    <div class="flex flex-col mt-4 bg-gray-200 shadow-md lg:flex-row lg:space-x-4 rounded-md">
       <h2 class="px-4 py-2 text-xl font-semibold">Definitions</h2>
       <div class="flex-1 p-4">
         <p>
-          <em>Representational state transfer (REST)</em> is a software architectural style that defines a set of
+          <a href="https://en.wikipedia.org/wiki/Representational_state_transfer"><em>Representational state transfer
+              (REST)</em></a> is a software architectural style that defines a set of
           constraints to be used for creating Web services. Web services that conform to the REST architectural style,
           called RESTful Web
           services, provide interoperability between computer systems on the Internet. RESTful Web services allow the
           requesting systems to access and manipulate textual representations of Web resources by using a uniform and
           predefined set of stateless operations.
-          <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">?</a>
         </p>
       </div>
       <div class="flex-1 p-4">
         <p>
-          The <em>Hypertext Transfer Protocol (HTTP)</em> is an application protocol for distributed, collaborative,
+          The <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol"><em>Hypertext Transfer Protocol
+              (HTTP)</em></a> is an application protocol for distributed, collaborative,
           hypermedia
-          information systems.[1] HTTP is the foundation of data communication for the World Wide Web, where hypertext
+          information systems. HTTP is the foundation of data communication for the World Wide Web, where hypertext
           documents include hyperlinks to other resources that the user can easily access, for example by a mouse click
           or by tapping the screen in a web browser.
-          <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">?</a>
         </p>
       </div>
     </div>
 
-    <div class="px-4 mt-4">
+    <div class="mt-4">
       <h2 class="text-xl font-semibold">The REST constraints</h2>
       <p class="py-2 ml-4 -indent-4">
         <em>REST</em> Web services must follow a set of 6 constaints.
@@ -123,7 +116,7 @@
         request the next page without the server having to maintain any client state.
       </p>
 
-      <aside class="float-right p-2 ml-4 bg-gray-200 shadow-md">
+      <aside class="float-right p-2 ml-4 text-sm bg-gray-200 shadow-md">
         <h3 class="font-semibold">Original REST Constraints</h3>
         <ol class="pl-6 mt-2 list-decimal">
           <li>Client-server</li>
@@ -149,7 +142,7 @@
         follow the constraint that
         client-server interaction must be hypertext-driven.(HATEOAS)
         Often APIs simply return some JSON and does not contain any links to other
-        resources. This tighly couples client and server because without links
+        resources. This tighlty couples client and server because without links
         clients need knowledge of every endpoint up front and breaks RESTful
         design.
       </p>
@@ -158,7 +151,7 @@
     </div>
 
 
-    <div class="px-4 mt-4">
+    <div class="mt-4">
       <h2 class="text-xl font-semibold">What REST IS NOT about</h2>
       <ul class="pl-2 mt-2 space-y-1">
         <li class="with-ballot">Pretty URIs. (if client is doing string concatenation to build URIs it is not RESTful)
@@ -167,7 +160,7 @@
       </ul>
     </div>
 
-    <div class="px-4 mt-4">
+    <div class="mt-4">
       <h2 class="text-xl font-semibold">What REST IS about</h2>
       <ul class="pl-2 mt-2 space-y-1">
         <li class="with-checkmark">discoverability of resources</li>
@@ -177,7 +170,7 @@
       </ul>
     </div>
 
-    <div class="px-4 mt-4">
+    <div class="mt-4">
       <h2 class="text-xl font-semibold">Checklist: Is my API RESTful?</h2>
       <p>If you recognize these things in your application, there's a high chance,
         that REST constraints are violated.</p>
@@ -191,7 +184,7 @@
           the next page.</li>
       </ul>
     </div>
-    <div class="px-4 mt-4">
+    <div class="mt-4">
       <h2 class="py-2 text-xl font-semibold">REST FAQs</h2>
       <ul class="pl-6 list-disc">
         <li>
@@ -231,7 +224,7 @@
         </li>
       </ul>
     </div>
-    <pre class="px-4 mt-4 whitespace-pre-wrap">
+    <pre class="mt-4 whitespace-pre-wrap">
       TODO other optional content
       - Confusing examples: AWS API Gateway REST API
           "You can build RESTful APIs using both HTTP APIs and REST APIs in Amazon API Gateway."
@@ -251,7 +244,7 @@
       - REST was initially described in the context of HTTP, but is not limited to that protocol. RESTful architectures can be based on other Application Layer protocols if they already provide a rich and uniform vocabulary for applications based on the transfer of meaningful representational state. RESTful applications maximise the use of the pre-existing, well-defined interface and other built-in capabilities provided by the chosen network protocol, and minimise the addition of new application-specific features on top of it.
       - From <a href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">here's a set of ways to check if you're building a HTTP API or a REST API:</a>
     </pre>
-    <div class="px-4 mt-4">
+    <div class="mt-4">
       <h2 class="py-2 text-xl font-semibold">Conclusion</h2>
       <p>The REST architectural style as defined by Roy Fielding defines a set of
         constraints. A lot of times APIs that are called RESTful violate at least
