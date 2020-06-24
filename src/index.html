@@ -34,8 +34,9 @@
       <p class="text-xl">What is the difference between a REST API and a plain HTTP API?</p>
     </div>
   </header>
+
   <main class="container px-4 mt-4 lg:px-32">
-    <p class="py-2 ml-4 -indent-4">
+    <p class="ml-4 -indent-4">
       REST is a popular style of architecting and designing Web applications, which are commonly served
       over HTTP. What makes an API RESTful and what is a plain HTTP API?
       There seems to be a trend of calling any HTTP based API
@@ -50,12 +51,12 @@
       </blockquote>
       <i class="block mr-12 text-right">— Roy Fielding, creator of REST</i>
     </div>
-    <p class="py-2 ml-4 -indent-4">
+    <p class="ml-4 -indent-4">
       Let's take a quick look to review, what the <em>REST</em> and <em>HTTP</em> are:
     </p>
     <div class="flex flex-col mt-4 bg-gray-200 shadow-md lg:flex-row lg:space-x-4 rounded-md">
-      <h2 class="px-4 py-2 text-xl font-semibold">Definitions</h2>
-      <div class="flex-1 p-4">
+      <h2 class="px-4 py-4 font-semibold">Definitions</h2>
+      <div class="flex-1 p-4 text-sm">
         <p>
           <a href="https://en.wikipedia.org/wiki/Representational_state_transfer"><em>Representational state transfer
               (REST)</em></a> is a software architectural style that defines a set of
@@ -66,7 +67,7 @@
           predefined set of stateless operations.
         </p>
       </div>
-      <div class="flex-1 p-4">
+      <div class="flex-1 p-4 text-sm">
         <p>
           The <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol"><em>Hypertext Transfer Protocol
               (HTTP)</em></a> is an application protocol for distributed, collaborative,
@@ -79,16 +80,16 @@
     </div>
 
     <div class="mt-4">
-      <h2 class="text-xl font-semibold">The REST constraints</h2>
-      <p class="py-2 ml-4 -indent-4">
-        <em>REST</em> Web services must follow a set of 6 constaints.
-        The most interesting ones are:
+      <h2 class="mt-8 mb-2 text-xl font-semibold">The REST constraints</h2>
+      <p class="ml-4 -indent-4">
+        <em>REST</em> Web services must follow a set of 6 constraints.
+        We will take a closer look at the following two:
       </p>
       <ol class="pl-6 mt-2 list-disc">
         <li>Stateless communication</li>
         <li>Uniform interface</li>
       </ol>
-      <p class="py-2 ml-4 -indent-4">
+      <p class="ml-4 -indent-4">
         <em>Stateless communication</em> means that communication between client and
         server cannot rely on previous requests. For example: Clients can not
         ask servers to send them "the next page", because doing so would require
@@ -96,7 +97,7 @@
         last.
       </p>
 
-      <p class="py-2 ml-4 -indent-4">
+      <p class="ml-4 -indent-4">
         Instead, the <em>uniform interface</em> constraints impose a number of subconstraints
         namely, identification of resources; manipulation of resources through
         representations; self-descriptive messages; and hypermedia as the engine of application state(sometimes
@@ -108,7 +109,7 @@
         work.
       </p>
 
-      <p class="py-2 ml-4 -indent-4">
+      <p class="ml-4 -indent-4">
         So, by using hypermedia servers can directly send clients new
         URIs to navigate to. So instead of storing, which page a client has seen
         last, a server following a REST design will simply include a link to
@@ -127,7 +128,7 @@
           <li>Code on demand</li>
         </ol>
       </aside>
-      <p class="py-2 ml-4 -indent-4">
+      <p class="ml-4 -indent-4">
         REST aims to reduce coupling between client and server, so another big benefit
         of including hyperlinks to other resources in the response, is that the client does NOT need
         to know a catalog of available resources up front. It is enough for
@@ -137,7 +138,7 @@
       </p>
 
 
-      <p class="py-2 ml-4 -indent-4">
+      <p class="ml-4 -indent-4">
         However, most APIs that are declared REST APIs by their makers, do not
         follow the constraint that
         client-server interaction must be hypertext-driven.(HATEOAS)
@@ -152,7 +153,7 @@
 
 
     <div class="mt-4">
-      <h2 class="text-xl font-semibold">What REST IS NOT about</h2>
+      <h2 class="mt-8 mb-2 text-xl font-semibold">What REST IS NOT about</h2>
       <ul class="pl-2 mt-2 space-y-1">
         <li class="with-ballot">Pretty URIs. (if client is doing string concatenation to build URIs it is not RESTful)
         </li>
@@ -161,7 +162,7 @@
     </div>
 
     <div class="mt-4">
-      <h2 class="text-xl font-semibold">What REST IS about</h2>
+      <h2 class="mt-8 mb-2 text-xl font-semibold">What REST IS about</h2>
       <ul class="pl-2 mt-2 space-y-1">
         <li class="with-checkmark">discoverability of resources</li>
         <li class="with-checkmark">loose coupling between client and server</li>
@@ -171,7 +172,7 @@
     </div>
 
     <div class="mt-4">
-      <h2 class="text-xl font-semibold">Checklist: Is my API RESTful?</h2>
+      <h2 class="mt-8 mb-2 text-xl font-semibold">Checklist: Is my API RESTful?</h2>
       <p>If you recognize these things in your application, there's a high chance,
         that REST constraints are violated.</p>
       <ul class="pl-6 list-disc">
@@ -185,7 +186,7 @@
       </ul>
     </div>
     <div class="mt-4">
-      <h2 class="py-2 text-xl font-semibold">REST FAQs</h2>
+      <h2 class="mt-8 mb-2 text-xl font-semibold">REST FAQs</h2>
       <ul class="pl-6 list-disc">
         <li>
           <div class="font-bold">Does REST need to be served over HTTP?</div>
@@ -245,13 +246,13 @@
       - From <a href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">here's a set of ways to check if you're building a HTTP API or a REST API:</a>
     </pre>
     <div class="mt-4">
-      <h2 class="py-2 text-xl font-semibold">Conclusion</h2>
-      <p>The REST architectural style as defined by Roy Fielding defines a set of
+      <h2 class="mt-8 mb-2 text-xl font-semibold">Conclusion</h2>
+      <p class="ml-4 -indent-4">The REST architectural style as defined by Roy Fielding defines a set of
         constraints. A lot of times APIs that are called RESTful violate at least
         one of them. Most commonly they violate the <em>Uniform interface</em>
         constraint, because resources are not discoverable due to lacking links
         in responses.</p>
-      <p>Hopefully, this page has clarified what REST is and what it isn't.
+      <p class="ml-4 -indent-4">Hopefully, this page has clarified what REST is and what it isn't.
         While reading, you may have detected a so-called REST API at work or another place,
         that actually should not be called one. If you did please:
       </p>
@@ -263,6 +264,7 @@
       </ol>
     </div>
   </main>
+
   <footer class="py-6 mt-4 text-sm text-center bg-gray-200">
     <div>
       © 2020 - present <a href="https://deedop.de">DeedoP</a>

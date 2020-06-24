@@ -21,6 +21,10 @@ a {
 a:focus, a:hover {
   @apply underline;
 }
+
+p {
+  @apply my-2;
+}
 /* my resets end */
 
 @tailwind components;
