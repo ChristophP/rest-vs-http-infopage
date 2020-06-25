@@ -178,12 +178,17 @@
       <h2 class="mt-8 mb-2 text-xl font-semibold">Checklist: Is my API RESTful?</h2>
       <p>If you recognize these things in your application, there's a high chance,
         that REST constraints are violated.</p>
-      <ul class="pl-6 list-disc">
-        <li>Client concatenating URIs -> Not RESTful</li>
-        <li>Server responses don't contain links to other resources -> Violates hypertext/hypermedia constraint</li>
-        <li>Client says, give me the next page: -> Violates stateless constraint. To fulfill that the server would have
-          to
-          keep track of what the "next page" actually is. The correct RESTful way of doing that would be if the server
+      <ul class="pl-6 list-disc space-y-2">
+        <li> Your clients are performing string concatenation to build resource URLs.<br>
+          => REST clients should have no knowledge of resource URLs other than the
+          initial one. This demostrates a high coupling between client and server.</li>
+        <li>Server responses don't contain links to other resources <br>
+          => Violates hypertext/hypermedia constraint. In the inital response clients should receive links to other
+          available resources.</li>
+        <li>Client says, give me the next page: <br>
+          => Violates stateless constraint. To fulfill that the server would have
+          to keep track of what the "next page" actually is. The correct RESTful way of doing that would be if the
+          server
           returns the current page along with a link to the next one, which can then be used by the client to retrieve
           the next page.</li>
       </ul>
@@ -191,14 +196,13 @@
         <a href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">
           see Roy Fieldings blog</a>.
       </p>
-
-
     </div>
+
     <div class="mt-4">
       <h2 class="mt-8 mb-2 text-xl font-semibold">REST FAQs</h2>
       <ul class="space-y-6">
         <li>
-          <div class="font-bold">Does REST need to be served over HTTP?</div>
+          <div class="font-bold text-gray-600">Does REST need to be served over HTTP?</div>
           <p>Nope, there is no constraint that requires HTTP.
             REST happens to map very well to HTTP, though.
             In fact, Roy Fielding was also working on the HTTP/1.1 spec so there
@@ -206,13 +210,13 @@
             implementations of REST use HTTP, even though it is not a requirement.</p>
         </li>
         <li>
-          <div class="font-bold">Are all HTTP APIs automatically REST APIs?</div>
+          <div class="font-bold text-gray-600">Are all HTTP APIs automatically REST APIs?</div>
           <p>No, only if they follow the constraints for REST, as laid out in
             <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">Roy Fielding's
               dissertation</a>.</p>
         </li>
         <li>
-          <div class="font-bold">What is hypertext/hypermedia and HATEOAS?</div>
+          <div class="font-bold text-gray-600">What is hypertext/hypermedia and HATEOAS?</div>
           <p>It is simply a data format that has a notion of linking to other
             content. HTML is a good example because it has <em>anchor</em> tags
             that connect to other documents. Clients(Browsers) know how to
@@ -223,18 +227,27 @@
         <li>
           <div class="font-bold">What about other popular ways of building APIs, do they follow REST?</div>
           <p>
-            <b class="text-gray-600">GraphQL:</b> Is a query language and not an architectural style.
+            <b class="text-gray-600">GraphQL:</b> <a href="</a>">GraphQL</a> is
+            a query language and not an architectural style.
             GraphQL endpoints are actually somewhat discoverable due to their
             introspection queries, but they do not make use of hypermedia
-            media types.
+            media types or preexisting semantics of a protocol like HTTP.
+            GraphQL can be served over HTTP, but if it is then HTTP is treated
+            as a dumb transportation layer.
           </p>
-          <p><b class="text-gray-600">ProtoBuf:</b> Nope</p>
-          <p><b class="text-gray-600">JSON API:</b> Is a specification for APIs using JSON. Although it
-            does not explicitly label itself as following REST, it implements
-            many constraints correctly and promotes a style that it is plays well
-            with REST constraints, including: using it's own media type application/vnd.api+json,
-            using a JSON format that is well-specified (available to clients),
-            works with responses that link to other resources (discoverable)
+          <p><b class="text-gray-600">gRPC:</b> <a href="https://grpc.io/">gRPC</a> is a high performance
+            Remote Procedure Call(RCP) framework. Since it is using RCP, it tightly couples
+            client and server. This is often not a problem because there are tools that often
+            generate client code from Protocol Buffer descriptions, but it violates REST
+            principles.</p>
+          <p><b class="text-gray-600">JSON:api:</b> JSON:api Is a <a href="https://jsonapi.org/">specification</a>
+            for APIs using JSON. Although it does not explicitly label itself as following REST, it implements
+            many constraints correctly and promotes a style, that it is plays well
+            with REST constraints. This is includes using it's own media type <span
+              class="url">application/vnd.api+json</span>,
+            using a JSON format that is registered with IANA (available to clients).
+            This format can be seen as hypermedia, because it contains links to
+            other resources (discoverable) such as "self", "next" or "last".
           </p>
         </li>
       </ul>
@@ -245,15 +258,6 @@
       - Confusing examples: AWS API Gateway REST API
           "You can build RESTful APIs using both HTTP APIs and REST APIs in Amazon API Gateway."
           https://aws.amazon.com/api-gateway/faqs/
-      - Links to sources:
-         - Roy Fielding's dissertation
-         - GOTO 2014: REST: I don't Think it Means What You Think it Does https://www.youtube.com/watch?v=pspy1H6A3FM
-      - Contrast to RPC: REST aims to achieve low coupling
-      - this great Stackoverflow answer:
-              https://stackoverflow.com/a/2191826
-              - self-descriptive messages
-              - HATEOAS constraint about turning responses into a web of links
-      - https://aboullaite.me/http-rest-apis/
       - idea a RESTful client client which understands a certain hypermedia format
         can talk to any server that uses this format
       - REST was initially described in the context of HTTP, but is not limited to that protocol. RESTful architectures can be based on other Application Layer protocols if they already provide a rich and uniform vocabulary for applications based on the transfer of meaningful representational state. RESTful applications maximise the use of the pre-existing, well-defined interface and other built-in capabilities provided by the chosen network protocol, and minimise the addition of new application-specific features on top of it.
@@ -277,6 +281,25 @@
           REST is truly about. 🙏</li>
       </ol>
     </div>
+
+    <div class="mt-4">
+      <h2 class="mt-8 mb-2 text-xl font-semibold">Further Reading</h2>
+      <p class="ml-4 -indent-4">Some links to some excellent resources, which
+        all do a good job explaining what REST is about, and what it isn't about.</p>
+      <ul class="pl-6 mt-2 list-disc">
+        <li>The mother of resources on REST: <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">Roy
+            Fielding's dissertation</a></li>
+        <li>An excellent talk at GOTO 2014: <a href="https://www.youtube.com/watch?v=pspy1H6A3FM">REST: I don't Think it
+            Means What You Think it Does</a></li>
+        <li>This <a href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">blog article</a> by
+          Roy
+          Fielding about how commonly REST APIs need to be hypermedia driven</li>
+        <li>A great <a href="https://stackoverflow.com/a/2191826">Stackoverflow thread</a> on the topic,
+          explaining self-descriptive messages and HATEOAS constraint as turning responses into a web of links </li>
+        <li>A very insightful blog article: <a href="https://aboullaite.me/http-rest-apis/">No! HTTP APIs are not
+            necessarily Rest APIs</a></li>
+      </ul>
+    </div>
   </main>
 
   <footer class="py-6 mt-8 text-sm text-center bg-gray-200">
@@ -299,4 +322,4 @@
   </footer>
 </body>
 
-</html>
+afunctionality/html>
