@@ -38,36 +38,38 @@
   <main class="container px-4 mx-auto mt-4 lg:px-32">
     <p class="ml-4 -indent-4">
       REST is a popular style of architecting and designing Web applications, which are commonly served
-      over HTTP. What makes an API RESTful and what is a plain HTTP API?
+      over HTTP. But what makes an API RESTful and what is a plain HTTP API?
       There seems to be a trend of calling any HTTP based API
       a REST API, even though the API doesn't fulfill all the constraints that
       REST requires. REST's creator Roy Fielding, also voiced his opinion about this in <a
         href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">a blog post on his
         website</a>:
     </p>
+
     <div class="px-8 py-2 my-6">
-      <blockquote class="font-serif text-2xl italic text-center quoted">
+      <blockquote class="font-serif text-2xl italic text-center text-gray-900 quoted">
         I am getting frustrated by the number of people calling any HTTP-based interface a REST API.
       </blockquote>
       <i class="block mr-12 text-right">— Roy Fielding, creator of REST</i>
     </div>
+
     <p class="ml-4 -indent-4">
       Let's take a quick look to review, what the <em>REST</em> and <em>HTTP</em> are:
     </p>
-    <div class="flex flex-col mt-4 bg-gray-200 shadow-md lg:flex-row lg:space-x-4 rounded-md">
-      <h2 class="px-4 py-4 font-semibold">Definitions</h2>
-      <div class="flex-1 p-4 text-sm">
+    <div class="flex flex-col mt-4 bg-green-100 shadow-md lg:space-x-4 lg:flex-row rounded-md">
+      <h2 class="px-4 mt-2 font-semibold">Definitions</h2>
+      <div class="flex-1 px-4 text-sm">
         <p>
           <a href="https://en.wikipedia.org/wiki/Representational_state_transfer"><em>Representational state transfer
               (REST)</em></a> is a software architectural style that defines a set of
           constraints to be used for creating Web services. Web services that conform to the REST architectural style,
-          called RESTful Web
-          services, provide interoperability between computer systems on the Internet. RESTful Web services allow the
+          called RESTful Web services, provide interoperability between computer systems on the Internet. RESTful Web
+          services allow the
           requesting systems to access and manipulate textual representations of Web resources by using a uniform and
           predefined set of stateless operations.
         </p>
       </div>
-      <div class="flex-1 p-4 text-sm">
+      <div class="flex-1 px-4 text-sm">
         <p>
           The <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol"><em>Hypertext Transfer Protocol
               (HTTP)</em></a> is an application protocol for distributed, collaborative,
@@ -85,7 +87,7 @@
         <em>REST</em> Web services must follow a set of 6 constraints.
         We will take a closer look at the following two:
       </p>
-      <ol class="pl-6 mt-2 list-disc">
+      <ol class="pl-6 mt-2 list-disc space-y-2">
         <li>Stateless communication</li>
         <li>Uniform interface</li>
       </ol>
@@ -147,17 +149,16 @@
         clients need knowledge of every endpoint up front and breaks RESTful
         design.
       </p>
-
-      - Browsers an websites are a RESTful system
     </div>
 
 
     <div class="mt-4">
       <h2 class="mt-8 mb-2 text-xl font-semibold">What REST IS NOT about</h2>
       <ul class="pl-2 mt-2 space-y-1">
-        <li class="with-ballot">Pretty URIs. (if client is doing string concatenation to build URIs it is not RESTful)
+        <li class="with-ballot">Pretty URIs like
+          <pre class="url">/customer/12/profile</pre>
         </li>
-        <li class="with-ballot">URI Pattern + GET, POST, PUT, DELETE</li>
+        <li class="with-ballot">Having to use all of the HTTP methods like GET, POST, PUT, DELETE</li>
       </ul>
     </div>
 
@@ -165,8 +166,10 @@
       <h2 class="mt-8 mb-2 text-xl font-semibold">What REST IS about</h2>
       <ul class="pl-2 mt-2 space-y-1">
         <li class="with-checkmark">discoverability of resources</li>
+        <li class="with-checkmark">resources that are addressable</li>
         <li class="with-checkmark">loose coupling between client and server</li>
-        <li class="with-checkmark">making use of existing standards: like HTML, HTTP, URI</li>
+        <li class="with-checkmark">making use of existing standards: like HTML, HTTP, URI and standardized media types
+        </li>
         <li class="with-checkmark">long living systems that can evolve independently over time</li>
       </ul>
     </div>
@@ -184,16 +187,23 @@
           returns the current page along with a link to the next one, which can then be used by the client to retrieve
           the next page.</li>
       </ul>
+      <p>For a more comprehensive list,
+        <a href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">
+          see Roy Fieldings blog</a>.
+      </p>
+
+
     </div>
     <div class="mt-4">
       <h2 class="mt-8 mb-2 text-xl font-semibold">REST FAQs</h2>
-      <ul class="pl-6 list-disc">
+      <ul class="space-y-6">
         <li>
           <div class="font-bold">Does REST need to be served over HTTP?</div>
-          <p>Nope, other protocols work too. REST happens to map very well to HTTP, though.
+          <p>Nope, there is no constraint that requires HTTP.
+            REST happens to map very well to HTTP, though.
             In fact, Roy Fielding was also working on the HTTP/1.1 spec so there
             definitely has been some sort of influence. In practice, virtually all
-            implementations of REST use HTTP even though it is not a requirement.</p>
+            implementations of REST use HTTP, even though it is not a requirement.</p>
         </li>
         <li>
           <div class="font-bold">Are all HTTP APIs automatically REST APIs?</div>
@@ -213,9 +223,13 @@
         <li>
           <div class="font-bold">What about other popular ways of building APIs, do they follow REST?</div>
           <p>
-            - GraphQL? Is a query language and not an architectural style.<br>
-            - ProtoBuf? Nope<br>
-            - JSON API: Is a specification for APIs using JSON. Although it
+            <b class="text-gray-600">GraphQL:</b> Is a query language and not an architectural style.
+            GraphQL endpoints are actually somewhat discoverable due to their
+            introspection queries, but they do not make use of hypermedia
+            media types.
+          </p>
+          <p><b class="text-gray-600">ProtoBuf:</b> Nope</p>
+          <p><b class="text-gray-600">JSON API:</b> Is a specification for APIs using JSON. Although it
             does not explicitly label itself as following REST, it implements
             many constraints correctly and promotes a style that it is plays well
             with REST constraints, including: using it's own media type application/vnd.api+json,
@@ -225,7 +239,8 @@
         </li>
       </ul>
     </div>
-    <pre class="mt-4 whitespace-pre-wrap">
+
+    <!-- pre class="mt-4 whitespace-pre-wrap">
       TODO other optional content
       - Confusing examples: AWS API Gateway REST API
           "You can build RESTful APIs using both HTTP APIs and REST APIs in Amazon API Gateway."
@@ -241,10 +256,9 @@
       - https://aboullaite.me/http-rest-apis/
       - idea a RESTful client client which understands a certain hypermedia format
         can talk to any server that uses this format
-      - it[REST] is a network of Web resources (a virtual state-machine) where the user progresses through the application by selecting resource identifiers such as http://www.example.com/articles/21 and resource operations such as GET or POST (application state transitions), resulting in the next resource's representation (the next application state) being transferred to the end user for their use. wikipedia
       - REST was initially described in the context of HTTP, but is not limited to that protocol. RESTful architectures can be based on other Application Layer protocols if they already provide a rich and uniform vocabulary for applications based on the transfer of meaningful representational state. RESTful applications maximise the use of the pre-existing, well-defined interface and other built-in capabilities provided by the chosen network protocol, and minimise the addition of new application-specific features on top of it.
-      - From <a href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">here's a set of ways to check if you're building a HTTP API or a REST API:</a>
-    </pre>
+    </pre -->
+
     <div class="mt-4">
       <h2 class="mt-8 mb-2 text-xl font-semibold">Conclusion</h2>
       <p class="ml-4 -indent-4">The REST architectural style as defined by Roy Fielding defines a set of
@@ -265,7 +279,7 @@
     </div>
   </main>
 
-  <footer class="py-6 mt-4 text-sm text-center bg-gray-200">
+  <footer class="py-6 mt-8 text-sm text-center bg-gray-200">
     <div>
       © 2020 - present <a href="https://deedop.de">DeedoP</a>
       <br>

@@ -9,6 +9,7 @@ html, body {
 body {
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
+  @apply text-gray-800;
 }
 
 svg {
@@ -28,6 +29,12 @@ p {
 /* my resets end */
 
 @tailwind components;
+
+/* put custom components here */
+.url {
+  @apply inline-block p-1 text-sm text-red-800 bg-gray-100 rounded shadow;
+}
+/* custom components end */
 
 @tailwind utilities;
 
