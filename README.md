@@ -16,7 +16,7 @@ npm i
 Now you can run the dev server.
 
 ```sh
-npm run build
+npm start
 ```
 
 ### Building for production
